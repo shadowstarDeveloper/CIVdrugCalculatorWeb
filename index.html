@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css"/>
   <meta charset="utf-8">
   <style>
-    #drugicon{
-      background: rgb(230,230,230);
-      width: 320px;
-      height: 60px;
-      overflow-y: hidden;
-      overflow-x: hidden;
-      padding: 5px;
-      margin: 5px 5px 5px 5px;
-    }
+  
     #input1{
-        width: 60px;
-        height: 30px;
+        width: 90px;
+        height: 40px;
+        font-size:36px;
     }
     table{width:320px}
     
@@ -21,63 +15,74 @@
   <title>
     CIV Drug Calculator 
   </title>
+<head>
 
-  <body>
-    <h3> CIV Drug Calculator powered by html/css </h3>
+</head>
+<body>
+
+
+    <h1> CIV Drug Calculator powered by HTML/JS </h1>
+    <h2> ShadowstarDeveloper/BlackLibrary </h2>
     <form>
-    <p>Please input patient's weight(kg): <input id="input1" type="number" value="65" step="0.1"/>
-    </p>
+        <p style="font-size: 36px">
+            Please input patient's weight(kg): <input id="input1" type="number" value="65" step="0.1" />
+        </p>
     </form>
 
-    
-    <div id="drugicon">
-      <table>
-        <thead>
-          <tr>
-            <th> </th>
-            <th> </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> Norepinpehrine </td>
-            <td> 4mg/50cc</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td> 0.02mcg/kg/min </td>
-            <td> = 0.9cc/hr </td>
-          </tr>
-        </tbody>
-        
-      </table>
-    </div>
+    <button id="addbt">Add new rule</button>
 
-    <div id="drugicon">
-      <table>
-        <thead>
-          <tr>
-            <th> </th>
-            <th> </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> Dobutamine </td>
-            <td> 400mg/50cc</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td> 5mcg/kg/min </td>
-            <td> = 9.8cc/hr </td>
-          </tr>
-        </tbody>
-        
-      </table>
-    </div>
+    <ul id="position">
+
+    </ul>
+
+    <template id="drugitemid">
+
+
+        <li class='drugitem'>
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th > </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:70%; font-size: 36px"> <input id="drugnametxt" /> </td>
+                        <td style="display:flex; text-align:right; font-size: 24px"> <input class="drugdose" type="number" value ="4"  style="font-size:24px" /> mg/ <input class="fluidcc" type="number" value ="50" style="font-size:24px" /> cc</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td style="display:flex; flex-direction:row;">
+                            <input class="drugspeed" type="number" value ="0.02"  style="font-size:24px" />
+                            <select class="drugspeedtxt" style="font-size:28px">
+                                <option value="mcg/kg/min">mcg/kg/min</option>
+                                <option value="mcg/kg/hr">mcg/kg/hr</option>
+                                <option value="mcg/min">mcg/min</option>
+                                <option value="mg/kg/min">mg/kg/min</option>
+                                <option value="mg/kg/hr">mg/kg/hr</option>
+                                <option value="mg/min">mg/min</option>
+                                <option value="mg/hr">mg/hr</option>
+                                <option value="unit/kg/hr">unit/kg/hr</option>
+                                <option value="unit/min">unit/min</option>
+                                <option value="unit/hr">unit/hr</option>
+
+                            </select>
+
+                        </td>
+                        <td style="text-align:right"><input class="drugresult" style="font-size:24px" /> </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </li>
+    </template>
+
+
 
     
-  </body>
+    <script type="text/javascript" src="Script.js"></script>
+
+</body>
 </html>

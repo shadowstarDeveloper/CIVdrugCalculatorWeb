@@ -20,11 +20,11 @@
 </head>
 <body>
 
-
-    <h1> CIV Drug Calculator powered by HTML/JS </h1>
+    
+    <h1><a href="#" class="civ" style="float:left"></a> <span> CIV Drug Calculator powered by HTML/JS ver. 0.2 </span></h1>
     <h2> ShadowstarDeveloper/BlackLibrary </h2>
     <form>
-        <p style="font-size: 36px">
+        <p style="font-size: 32px">
             Please input patient's weight(kg): <input id="input1" type="number" value="65" step="0.1" />
         </p>
     </form>
@@ -48,8 +48,25 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="width:70%; font-size: 36px"> <input id="drugnametxt" /> </td>
-                        <td style="display:flex; text-align:right; font-size: 24px"> <input class="drugdose" type="number" value ="4"  style="font-size:24px" /> mg/ <input class="fluidcc" type="number" value ="50" style="font-size:24px" /> cc</td>
+                        <td accesskey="" style="width:70%; font-size: 36px"> 
+                            <input list="drugnamelist" class="drugnametxt" placeholder="Search drug name.." />
+
+                            <datalist id="drugnamelist">
+                                <option value="Norepinephrine"></option>
+                                <option value="Dobutamine"></option>
+                                <option value="Dopamix(premix)"></option>
+                                <option value="Remifentanil"></option>
+                                <option value="Propofol"></option>
+                                <option value="Midazolam"></option>
+                                <option value="Precedex"></option>
+                            </datalist>
+
+                        </td>
+                        <td style="display:flex; align-items:center; text-align:right; font-size: 24px"> <input class="drugdose" type="number" value ="4"  style="font-size:24px" />
+                            <span>mg/</span>
+                            <input class="fluidcc" type="number" value ="50" style="font-size:24px" />
+                            <span>cc</span>
+                        </td>
                     </tr>
                 </tbody>
                 <tbody>
@@ -64,14 +81,16 @@
                                 <option value="mg/kg/hr">mg/kg/hr</option>
                                 <option value="mg/min">mg/min</option>
                                 <option value="mg/hr">mg/hr</option>
-                                <option value="unit/kg/hr">unit/kg/hr</option>
-                                <option value="unit/min">unit/min</option>
-                                <option value="unit/hr">unit/hr</option>
+                               <!-- 
+                                   <option value="unit/kg/hr">unit/kg/hr</option>
+                                    <option value="unit/min">unit/min</option>
+                                    <option value="unit/hr">unit/hr</option>
+                                -->
 
                             </select>
 
                         </td>
-                        <td style="text-align:right"><input class="drugresult" style="font-size:24px" /> </td>
+                        <td style="text-align:right"><span class="drugresult" style="font-size:36px" /> </td>
                     </tr>
                 </tbody>
 

@@ -1,6 +1,17 @@
-﻿body{
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    min-width: 640px;
     max-width: 640px;
 }
+body{
+    min-width: 640px;
+    max-width: 640px;
+}
+
 a::after {
     content: "";
     display: block;

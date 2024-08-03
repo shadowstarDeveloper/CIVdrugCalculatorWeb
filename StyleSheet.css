@@ -1,4 +1,6 @@
-﻿
+﻿body{
+    max-width: 640px;
+}
 a::after {
     content: "";
     display: block;

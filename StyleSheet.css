@@ -10,6 +10,11 @@ a::after {
     background-position: 0px 0px;
     background-size: 36px;
 }
+#input1 {
+    width: 90px;
+    height: 40px;
+    font-size: 36px;
+}
 
 #addbt{
     width:240px;
@@ -48,19 +53,21 @@ a::after {
     width: 210px;
     height: 48px;
     font-size: 36px;
-    text-align: right;
+    text-align: left;
     margin-left: 10px;
 }
 .drugdose{
     border: none;
-    width: 60px;
+    width: 90px;
     height: 48px;
+    font-size: 48px;
     text-align: right;
 }
 .fluidcc {
     border: none;
     width: 60px;
     height: 48px;
+    font-size: 48px;
     text-align: right;
 }
 

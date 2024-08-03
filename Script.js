@@ -17,7 +17,15 @@ const position = document.getElementById("position");
 addBt.addEventListener('click', function (e) {
     //추가 버튼
     const item = drugItemID.content.cloneNode(true);
+
+    item.querySelector(".drugnametxt").addEventListener("touchstart", function (e) {
+        e.currentTarget.value = "";
+    })
+    item.querySelector(".drugnametxt").addEventListener("mousedown", function (e) {
+        e.currentTarget.value = "";
+    })
     item.querySelector(".drugnametxt").addEventListener("change", drugsearch);
+   
 
     position.appendChild(item);
     update();
@@ -87,7 +95,7 @@ function drugsearch(e) {
         case "Midazolam":
             _drugdose.value = 30;
             _fluidcc.value = 30;
-            _drugspeed.value = 0.02;
+            _drugspeed.value = 1;
             _drugspeedtxt.value = "mg/hr";
             break;
         case "Precedex":

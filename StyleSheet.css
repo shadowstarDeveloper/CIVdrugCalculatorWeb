@@ -19,6 +19,16 @@ a::after {
     height: 36px;
     background-image: url(civdrugcalculatorLarge.png);
 }
+.mail::after {
+
+    background-image: url(icons.png);
+    background-size: 180px;
+    background-position: -135px -180px;
+    width: 40px;
+    height: 40px;
+    margin-left:5px;
+    float:left;
+}
 .civ::after{
     background-position: 0px 0px;
     background-size: 36px;

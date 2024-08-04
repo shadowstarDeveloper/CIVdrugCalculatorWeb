@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 html {
-   
+    position: absolute;
     min-width: 640px;
     max-width: 640px;
     width: 100%;
     padding: 0px;
     margin: 0px;
-    position: fixed;
+    
 }
 body{
     min-width: 640px;

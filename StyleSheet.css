@@ -4,13 +4,14 @@
     box-sizing: border-box;
 }
 html {
-    min-width: 640px;
-    max-width: 640px;
-    width: 100wv;
+    width: 100%;
 }
 body{
-    min-width: 640px;
-    max-width: 640px;
+    width: 100%;
+}
+
+input {
+    font-size: inherit;
 }
 
 a::after {
@@ -48,64 +49,70 @@ a::after {
 }
 #position{
     padding:4px 7px 2px 4px;
+    display: flex;
+    flex-direction: column;
 }
 .drugitem {
     background: rgb(230,230,230);
     border: 1px solid #353535;
-    width: 600px;
     height: 140px;
-    overflow-y: hidden;
-    overflow-x: hidden;
     padding: 0px;
     margin-top: 10px;
 }
 .drugnametxt {
     border: none;
-    width: 300px;
     height: 48px;
-    font-size: 30px;
+    min-width: 0;
+    width: 100%;
 }
 .drugspeed {
     border: none;
     user-select: none;
-    width: 80px;
+    min-width: 4ch;
+    width: 100%;
+    max-width: 80px;
     height: 48px;
     text-align: right;
 }
 .drugspeedtxt {
     border: none;
-    width: 210px;
     height: 48px;
-    font-size: 36px;
     text-align: left;
     margin-left: 10px;
 }
+.dosefluidcell {
+    display:flex;
+    align-items:center;
+    justify-content: end;
+    text-align:right;
+    font-size: 24px;
+}
+.dosefluidcell input {
+    flex: 1 1 auto;
+    min-width: 2ch;
+    max-width: 4ch;
+    width: 100%;
+}
 .drugdose{
     border: none;
-    width: 90px;
-    height: 48px;
-    font-size: 48px;
     text-align: right;
 }
 .fluidcc {
     border: none;
-    width: 60px;
-    height: 48px;
-    font-size: 48px;
     text-align: right;
 }
 
 
 .drugresult {
-    width: 200px;
-    height: 48px;
     text-align: right;
+    font-size: 24px;
 }
-table{
-    padding-left: 20px;
-    padding-right: 20px;
+.drugitem table{
+    padding: 8px;
     vertical-align:bottom;
+    width: 100%;
 }
+
 th,td{
     
 }

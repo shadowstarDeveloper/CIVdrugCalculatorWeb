@@ -5,15 +5,14 @@
 }
 html {
     position: absolute;
-    min-width: 100%;
-    
-    width: 100px;
-    padding: 0px;
-    margin: 0px;
+    min-width: 640px;
+    max-width: 640px;
+    width: 100%;
     
 }
 body{
     min-width: 640px;
+    max-width: 640px;
 }
 
 a::after {

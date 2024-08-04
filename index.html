@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" type="text/css" href="StyleSheet.css"/>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" >
-  <style>
-  </style>
-    <link rel="icon" href="favicon-32x32.png"/>
-    <link rel="apple-touch-icon" href="favicon-32x32.png"/>
-  <title> CIV Drug Calculator </title>
+
 <head>
-
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="icon" href="favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="favicon-32x32.png" />
+    <title> CIV Drug Calculator </title>
 </head>
+
 <body>
-
-
-    <h1><a href="#" class="civ" style="float:left;margin-left:10px; margin-right:10px"></a> <span> CIV Drug Calculator powered by HTML/JS </span> 
-    <span style="font-size:20px;vertical-align:bottom; margin-left:10px; float:right">ver 0.3</span></h1>
-    
+    <h1>
+        <a href="#" class="civ" style="float:left;margin-left:10px; margin-right:10px"></a>
+        <span>CIV Drug Calculator powered by HTML/JS</span>
+        <span style="font-size:20px;vertical-align:bottom; margin-left:10px; float:right">ver 0.3</span>
+    </h1>
     <hr style="margin-top:20px" />
     <form style="margin:10px 10px 10px 10px">
         <p style="font-size: 32px">
             Please input patient's weight(kg): <input id="input1" type="number" value="65" step="0.1" />
         </p>
     </form>
-
     <button id="addbt">Add new rule</button>
-
-    <ul id="position">
-    </ul>
-
+    <ul id="position"></ul>
     <hr style="margin-top:20px" />
-
+    <footer>
+        <h3>
+            <a class="mail" href="mailto:shadowstarDeveloper@gmail.com"
+                style="margin-left:5px">shadowstarDeveloper@gmail.com</a>
+        </h3>
+        <h3>
+            <span style="margin-left:5px">BlackLibrary</span>
+        </h3>
+    </footer>
     <template id="drugitemid">
-
-
-        <li class='drugitem'>
+        <li class="drugitem">
             <table>
                 <thead>
                     <tr>
-                        <th> </th>
-                        <th> </th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td accesskey="">
                             <input list="drugnamelist" class="drugnametxt" placeholder="Search drug name.." />
-
                             <datalist id="drugnamelist">
                                 <option value="Norepinephrine"></option>
                                 <option value="Dobutamine"></option>
@@ -56,7 +56,6 @@
                                 <option value="Midazolam"></option>
                                 <option value="Precedex"></option>
                             </datalist>
-
                         </td>
                         <td class="dosefluidcell">
                             <input class="drugdose" type="number" value="4" />
@@ -78,32 +77,15 @@
                                 <option value="mg/kg/hr">mg/kg/hr</option>
                                 <option value="mg/min">mg/min</option>
                                 <option value="mg/hr">mg/hr</option>
-                                <!--
-                                    <option value="unit/kg/hr">unit/kg/hr</option>
-                                     <option value="unit/min">unit/min</option>
-                                     <option value="unit/hr">unit/hr</option>
-                                 -->
-
                             </select>
-
                         </td>
-                        <td style="text-align:right"><span class="drugresult" /> </td>
+                        <td style="text-align:right"><span class="drugresult"></span></td>
                     </tr>
                 </tbody>
-
             </table>
         </li>
     </template>
-
-
-
-
     <script type="text/javascript" src="Script.js"></script>
-
 </body>
-<tail>
-    <h3 > <a class="mail" href="mailto:shadowstarDeveloper@gmail.com" style="margin-left:5px">shadowstarDeveloper@gmail.com</a> </h3>
-    <h3 > <span style="margin-left:5px">BlackLibrary</span> </h3>
 
-</tail>
 </html>

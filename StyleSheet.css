@@ -5,6 +5,7 @@
 }
 html {
     width: 100%;
+    max-width: 500px;
 }
 body{
     width: 100%;
@@ -36,47 +37,49 @@ a::after {
     background-size: 36px;
 }
 #input1 {
-    width: 90px;
-    height: 40px;
-    font-size: 36px;
+    width: 80px;
+    height: 30px;
+    font-size: 30px;
+    text-align:right;
 }
 
 #addbt{
-    width:240px;
-    height:40px;
+    width:200px;
+    height:36px;
     margin: 10px;
-    font-size: 24px;
+    font-size: 20px;
 }
 #position{
-    padding:4px 7px 2px 4px;
+    padding: 5px 10px 5px 10px;
     display: flex;
     flex-direction: column;
 }
 .drugitem {
     background: rgb(230,230,230);
     border: 1px solid #353535;
-    height: 140px;
+    height: 12vh;
     padding: 0px;
     margin-top: 10px;
 }
 .drugnametxt {
     border: none;
-    height: 48px;
+    height: 4vh;
     min-width: 0;
     width: 100%;
 }
 .drugspeed {
     border: none;
     user-select: none;
-    min-width: 4ch;
-    width: 100%;
+    min-width: 4vw;
+    width: 30%;
     max-width: 80px;
-    height: 48px;
+    height: 4vh;
     text-align: right;
 }
 .drugspeedtxt {
     border: none;
-    height: 48px;
+    height: 4vh;
+    width: 70%;
     text-align: left;
     margin-left: 10px;
 }

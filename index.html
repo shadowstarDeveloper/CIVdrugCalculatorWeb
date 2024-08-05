@@ -11,18 +11,33 @@
 </head>
 
 <body>
-    <h1>
-        <a href="#" class="civ" style="float:left;margin-left:10px; margin-right:10px"></a>
-        <span>CIV Drug Calculator powered by HTML/JS</span>
-        <span style="font-size:20px;vertical-align:bottom; margin-left:10px; float:right">ver 0.3</span>
-    </h1>
-    <hr style="margin-top:20px" />
-    <form style="margin:10px 10px 10px 10px">
-        <p style="font-size: 32px">
-            Please input patient's weight(kg): <input id="input1" type="number" value="65" step="0.1" />
-        </p>
-    </form>
-    <button id="addbt">Add new rule</button>
+    <header>
+        <div>
+            <h1>
+
+                <a href="#" class="civ" style="float:left;margin-left:10px; margin-right:10px"></a>
+                CIV Drug Calculator
+            </h1>
+
+            <span style="font-size:20px; margin:10px">powered by HTML/JS</span>
+
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.32 </span>
+        </div>
+        <hr style="margin-top:20px" />
+    </header>
+    <div>
+        <form style="margin:10px 10px 10px 10px">
+            <span style="font-size: 20px">
+                Please input patient's weight(kg):
+            </span>
+            <input id="input1" type="number" value="65" step="0.1" />
+        </form>
+        <button id="addbt">Add new rule</button>
+    </div>
+        
+
+   
+    
     <ul id="position"></ul>
     <hr style="margin-top:20px" />
     <footer>

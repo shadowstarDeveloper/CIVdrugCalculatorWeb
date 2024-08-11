@@ -47,15 +47,18 @@ a::after {
 }
 
 /* float box */
+.bwtbox{
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+}
 #input1 {
     width: 80px;
     height: 30px;
     font-size: 30px;
     text-align:right;
 }
-.bwtbox{
-    float:right;
-}
+
 
 /* drug list box */
 #addbt{

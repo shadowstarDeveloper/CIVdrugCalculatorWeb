@@ -14,13 +14,14 @@ body{
 input {
     font-size: inherit;
 }
-
+/* 이미지 아이콘 */
 a::after {
     content: "";
     display: block;
     width: 36px;
     height: 36px;
     background-image: url(civdrugcalculatorLarge.png);
+    margin-top: 4px;
 }
 .mail::after {
 
@@ -47,30 +48,49 @@ a::after {
 }
 
 /* float box */
-.bwtbox{
+.bwtbox {
     position: fixed;
-    bottom: 50px;
+    bottom: 40px;
     right: 30px;
+    width: 100px;
+    height:40px;
+    background: rgb(210,210,210);
+    border: 1px solid;
+    border-radius:5px;
 }
 #input1 {
-    width: 80px;
-    height: 30px;
-    font-size: 30px;
+    width: 65px;
+    height: 36px;
+    font-size: 32px;
     text-align:right;
+    margin: 2px 5px 2px 10px;
+    border: none;
+    background: rgb(0,0,0,0);
 }
 
 
 /* drug list box */
-#addbt{
-    width:200px;
-    height:36px;
-    margin: 10px;
+#addbt {
+    position: fixed;
+    width: 160px;
+    height: 40px;
+    margin: 0px;
+    left: 20px;
+    bottom: 40px;
+    border: thick;
     font-size: 20px;
+    background-color: rgb(210,210,210);
+    border: 1px solid;
+    border-radius: 5px;
 }
 #position{
     padding: 5px 10px 5px 10px;
     display: flex;
     flex-direction: column;
+}
+.xbt {
+    background: rgb(0,0,0,0);
+    border:none;
 }
 .drugitem {
     background: rgb(230,230,230);
@@ -84,6 +104,7 @@ a::after {
     height: 4vh;
     min-width: 0;
     width: 100%;
+    padding:0px 4px 0px 4px;
 }
 .drugspeed {
     border: none;
@@ -93,6 +114,7 @@ a::after {
     max-width: 80px;
     height: 4vh;
     text-align: right;
+    padding: 0px 4px 0px 4px;
 }
 .drugspeedtxt {
     border: none;
@@ -100,33 +122,39 @@ a::after {
     width: 70%;
     text-align: left;
     margin-left: 10px;
+    padding: 0px 4px 0px 4px;
 }
 .dosefluidcell {
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
     justify-content: end;
-    text-align:right;
+    text-align: right;
     font-size: 24px;
+    padding: 0px 4px 0px 4px;
 }
 .dosefluidcell input {
     flex: 1 1 auto;
     min-width: 2ch;
     max-width: 4ch;
     width: 100%;
+
 }
-.drugdose{
+.drugdose {
     border: none;
     text-align: right;
+    padding: 0px 4px 0px 4px;
 }
 .fluidcc {
     border: none;
     text-align: right;
+    padding: 0px 4px 0px 4px;
 }
 
 
 .drugresult {
     text-align: right;
     font-size: 24px;
+    padding: 0px 4px 0px 4px;
 }
 .drugitem table{
     padding: 8px;

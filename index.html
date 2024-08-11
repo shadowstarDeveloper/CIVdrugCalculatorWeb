@@ -21,21 +21,27 @@
 
             <span style="font-size:20px; margin:10px">powered by HTML/JS</span>
 
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.32 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.33 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
     <div>
-        <form style="margin:10px 10px 10px 10px">
-            <span style="font-size: 20px">
-                Please input patient's weight(kg):
-            </span>
-            <!-- 원래 box 위치 -->
-        </form>
+        <!--
+     <form style="margin:10px 10px 10px 10px">
+    <span style="font-size: 20px">
+        Please input patient's weight(kg):
+    </span>
+      원래 box 위치
+    </form
         <button id="addbt">Add new rule</button>
+    -->
+
     </div>
     
-    <div id="bwtbox"><input id="input1" type="number" value="65" step="0.1" /></div >
+    <button id="addbt">Add new rule</button>
+    <div class="bwtbox">
+        <input id="input1" type="number" value="65" step="0.1" /><span>kg</span>
+    </div >
     
     <div class="modal">
         <!-- 모달 팝업 -->
@@ -46,8 +52,9 @@
     <!-- 포지션 -->
     <ul id="position"></ul>
 
-    <hr style="margin-top:20px" />
+    
     <footer>
+            <hr style="margin-top:20px" />
         <h3>
             <a class="mail" href="mailto:shadowstarDeveloper@gmail.com"
                style="margin-left:5px">shadowstarDeveloper@gmail.com</a>
@@ -110,7 +117,7 @@
                     </tbody>
                 </table>
             </div><div style="display: inline-block; width: 10%; float: right; vertical-align: top; margin-top:5px">
-                <a href="#" class="icon_x"></a>
+                <button class="xbt" ><a href="#" class="icon_x"></a></button>
 
             </div>
         </li>

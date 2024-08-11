@@ -25,7 +25,20 @@ addBt.addEventListener('click', function (e) {
         e.currentTarget.value = "";
     })
     item.querySelector(".drugnametxt").addEventListener("change", drugsearch);
-   
+    item.querySelector(".xbt").addEventListener("mousedown", function (e) {
+        /*부모에서 색인해서 해당 객체 삭제*/
+        for (i = 0; i < position.childNodes.length; i++) {
+           /* console.log(e.currentTarget.parentNode.parentNode);*/
+            if (position.childNodes[i] == e.currentTarget.parentNode.parentNode) {
+                position.removeChild(position.childNodes[i]);
+                break;
+            }
+        }
+        /*
+        console.log(position.childNodes.length);
+        console.log(position);
+        */
+    })
 
     position.appendChild(item);
     update();

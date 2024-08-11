@@ -45,13 +45,19 @@ a::after {
     background-position: 0px 0px;
     background-size: 36px;
 }
+
+/* float box */
 #input1 {
     width: 80px;
     height: 30px;
     font-size: 30px;
     text-align:right;
 }
+.bwtbox{
+    float:right;
+}
 
+/* drug list box */
 #addbt{
     width:200px;
     height:36px;

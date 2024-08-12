@@ -15,13 +15,13 @@
         <div>
             <h1>
 
-                <a href="#" class="civ" style="float:left;margin-left:10px; margin-right:10px"></a>
+                <a class="civ"  href="#" style="float:left; margin-left:10px; margin-right:10px"></a>
                 CIV Drug Calculator
             </h1>
 
-            <span style="font-size:20px; margin:10px">powered by HTML/JS</span>
+            <span style="font-size:20px; margin:10px">powered by HTML5/JS</span>
 
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.33 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.34 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
@@ -38,10 +38,10 @@
 
     </div>
     
-    <button id="addbt">Add new rule</button>
-    <div class="bwtbox">
-        <input id="input1" type="number" value="65" step="0.1" /><span>kg</span>
-    </div >
+    <button id="addbt"><a class="icon_plus"></a><p style="margin-top:5px">Add new rule</p></button>
+    <div class="bwt box">
+        <input id="bwtinput" type="number" min="0" value="65" step="0.1" /><span style="font-size:16px; float:right; margin:14px 2px 2px 0px">kg</span> 
+    </div>
     
     <div class="modal">
         <!-- 모달 팝업 -->
@@ -65,7 +65,7 @@
     </footer>
     <template id="drugitemid">
         <li class="drugitem">
-            <div style="display: inline-block; width: 90%">
+            <div style="display: inline-block; width: 93%">
 
                 <table>
                     <thead>
@@ -89,9 +89,9 @@
                                 </datalist>
                             </td>
                             <td class="dosefluidcell">
-                                <input class="drugdose" type="number" value="4" />
+                                <input class="drugdose" type="number" min="0" value="4" />
                                 <span>mg/</span>
-                                <input class="fluidcc" type="number" value="50" />
+                                <input class="fluidcc" type="number" min="0" value="50" />
                                 <span>cc</span>
 
 
@@ -101,7 +101,7 @@
                     <tbody>
                         <tr>
                             <td style="display:flex; flex-direction:row;">
-                                <input class="drugspeed" type="number" value="0.02" />
+                                <input class="drugspeed" type="number" min="0" value="0.02" />
                                 <select class="drugspeedtxt">
                                     <option value="mcg/kg/min">mcg/kg/min</option>
                                     <option value="mcg/kg/hr">mcg/kg/hr</option>
@@ -116,8 +116,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </div><div style="display: inline-block; width: 10%; float: right; vertical-align: top; margin-top:5px">
-                <button class="xbt" ><a href="#" class="icon_x"></a></button>
+            </div><div style="display: inline-block; width: 7%; float: right; vertical-align: top; margin-top:5px">
+                <button class="xbt" ><a class="icon_x"></a></button>
 
             </div>
         </li>

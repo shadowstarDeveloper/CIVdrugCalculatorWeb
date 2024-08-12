@@ -1,6 +1,6 @@
 // JavaScript source code
 
-const BWTinput = document.querySelector('#input1');
+const BWTinput = document.querySelector('#bwtinput');
 
 const drugNameTxt = document.getElementsByClassName("drugnametxt");
 const drugDose = document.getElementsByClassName('drugdose');
@@ -108,8 +108,8 @@ function drugsearch(e) {
         case "Midazolam":
             _drugdose.value = 30;
             _fluidcc.value = 30;
-            _drugspeed.value = 1;
-            _drugspeedtxt.value = "mg/hr";
+            _drugspeed.value = 0.02;
+            _drugspeedtxt.value = "mg/kg/hr";
             break;
         case "Precedex":
             _drugdose.value = 0.4;

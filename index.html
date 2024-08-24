@@ -11,50 +11,58 @@
 </head>
 
 <body>
+    <!--<script type="text/javascript" src="Language.js"></script>-->
     <header>
         <div>
             <h1>
 
-                <a class="civ"  href="#" style="float:left; margin-left:10px; margin-right:10px"></a>
+                <a class="civ" id="civIcon" href="#" style="float:left; margin-left:10px; margin-right:10px"></a>
                 CIV Drug Calculator
             </h1>
 
             <span style="font-size:20px; margin:10px">powered by HTML5/JS</span>
 
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.34 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.35 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
     <div>
         <!--
-     <form style="margin:10px 10px 10px 10px">
-    <span style="font-size: 20px">
-        Please input patient's weight(kg):
-    </span>
-      원래 box 위치
-    </form
-        <button id="addbt">Add new rule</button>
-    -->
+         <form style="margin:10px 10px 10px 10px">
+        <span style="font-size: 20px">
+            Please input patient's weight(kg):
+        </span>
+          원래 box 위치
+        </form
+            <button id="addbt">Add new rule</button>
+        -->
 
     </div>
-    
-    <button id="addbt"><a class="icon_plus"></a><p style="margin-top:5px">Add new rule</p></button>
+    <button id="addbt" class="box"><a class="icon_plus"></a><p style="margin-top:5px">Add new rule</p></button>
     <div class="bwt box">
-        <input id="bwtinput" type="number" min="0" value="65" step="0.1" /><span style="font-size:16px; float:right; margin:14px 2px 2px 0px">kg</span> 
+        <input id="bwtinput" type="number" min="0" value="65" step="0.1" /><span style="font-size:16px; float:right; margin:14px 2px 2px 0px">kg</span>
     </div>
-    
-    <div class="modal">
-        <!-- 모달 팝업 -->
-        <button type="button"> 버튼 </button>
+
+    <!-- 모달 팝업 -->
+    <div class="modal" id="modalPanel">
+        <a class="icon_x" id="iconX" style="margin:10px 5px 5px 10px; float:left"></a>
+        <br /> <br />
+        <h2 style="width:100vw; margin:25px 0px 10px 0px; text-align:center; color:white">Preset List </h2>
+
+        <!-- 포지션 -->
+        <ul id="presetPosition"></ul>
+
+        <p style="position:fixed; right:30px;bottom:90px; color:white"> Please input body weight </p>
+        <div style="position:fixed; right:20px; bottom:35px; border:2px solid white; width: 120px; height:50px"> </div>
     </div>
 
 
     <!-- 포지션 -->
     <ul id="position"></ul>
 
-    
+
     <footer>
-            <hr style="margin-top:20px" />
+        <hr style="margin-top:20px" />
         <h3>
             <a class="mail" href="mailto:shadowstarDeveloper@gmail.com"
                style="margin-left:5px">shadowstarDeveloper@gmail.com</a>
@@ -63,6 +71,8 @@
             <span style="margin-left:5px">BlackLibrary</span>
         </h3>
     </footer>
+
+
     <template id="drugitemid">
         <li class="drugitem">
             <div style="display: inline-block; width: 93%">
@@ -117,11 +127,42 @@
                     </tbody>
                 </table>
             </div><div style="display: inline-block; width: 7%; float: right; vertical-align: top; margin-top:5px">
-                <button class="xbt" ><a class="icon_x"></a></button>
+                <button class="xbt"><a class="icon_x"></a></button>
 
             </div>
         </li>
     </template>
+
+    <template id="presetItemID">
+        <li class="presetItem">
+            <div style="display: inline-block; width: 100%">
+
+                <table style="width:100%">
+                       
+                        <tr>
+                        
+                            <td width="120px">
+                                <input class="disableInput" id="presetName" value="" disabled="disabled" />
+
+
+                            </td>
+                            <td>
+                                <input class="disableInput right" id="presetDose" value="" disabled="disabled" />
+
+                            </td>
+                            <td width="150px">
+                                <input class="disableInput right" id="drugSpeed" value="" disabled="disabled" />
+                            </td>
+                        </tr>
+                  
+                </table>
+        
+
+            </div>
+        </li>
+
+    </template>
+    <script type="text/javascript" src="PresetDrugList.js"></script>
     <script type="text/javascript" src="Script.js"></script>
 </body>
 

@@ -1,4 +1,6 @@
 // JavaScript source code
+//document.write('<script src="PresetDrugList.js"></script>');
+
 
 const BWTinput = document.querySelector('#bwtinput');
 
@@ -13,6 +15,12 @@ const drugResult = document.getElementsByClassName('drugresult');
 const drugItemID = document.getElementById("drugitemid");
 const addBt = document.getElementById("addbt");
 const position = document.getElementById("position");
+
+const civIcon = document.getElementById("civIcon");
+const iconX = document.getElementById("iconX");
+const menuPanel = document.getElementById("modalPanel");
+const presetItemID = document.getElementById("presetItemID");
+const presetPosition = document.getElementById("presetPosition");
 
 addBt.addEventListener('click', function (e) {
     //추가 버튼
@@ -46,9 +54,20 @@ addBt.addEventListener('click', function (e) {
 window.addEventListener('input', function (e) {
     update();
 });
+
 /**
  * @param {InputEvent} e 
  */
+
+iconX.addEventListener("mousedown", function (e) {
+    //모달 끄기
+    menuPanel.style.display = "none";
+})
+civIcon.addEventListener("mousedown", function (e) {
+    //모달 켜기
+    menuPanel.style.display = "inline";
+})
+
 function drugsearch(e) {
     let parent = e.currentTarget.parentNode.parentNode.parentNode.parentNode;
     _drugnametxt = e.currentTarget.value;
@@ -198,5 +217,31 @@ const update = function (value) {
         let _result = (_drugspeed * _fluidcc * _bwt * _min) / (_drugdose * _dose);
 
         drugResult[i].innerText = ` = ${_result.toFixed(1)}cc/hr `;
+    }
+}
+function fsearchPresetList(_tag) {
+    for (let i = 0; i < presetList.length; i++) {
+        if (presetList[i].Tag == _tag) {
+
+            return presetList[i];
+        }
+    }
+    return null;
+}
+let n = 1;
+fpresetSet();
+
+function fpresetSet() {
+ 
+    for (let i = 0; i < presetList.length; i++) {
+        if (i < n * 10) {
+            let data = presetList[i];
+            const item = presetItemID.content.cloneNode(true);
+            item.querySelector("#presetName").value = `${data.drugName} `  ;
+            item.querySelector("#presetDose").value = `${data.drugDose}mg/${data.fluidTotalcc}cc`;
+            item.querySelector("#drugSpeed").value = `${data.drugSpeed}~${data.maxSpeed} ${data.drugSpeedtxt}`;
+            presetPosition.appendChild(item);
+        }
+        
     }
 }

@@ -22,29 +22,34 @@
 
             <span style="font-size:20px; margin:10px">powered by HTML5/JS</span>
 
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.35 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right">ver 0.4 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
-    <div>
-        <!--
-         <form style="margin:10px 10px 10px 10px">
-        <span style="font-size: 20px">
-            Please input patient's weight(kg):
-        </span>
-          원래 box 위치
-        </form
-            <button id="addbt">Add new rule</button>
-        -->
 
+    <!-- 하단 버튼들 -->
+    <div>
+        <button id="addbt" class="box"><a class="icon_plus"></a><p style="margin-top:5px"></p></button>
     </div>
-    <button id="addbt" class="box"><a class="icon_plus"></a><p style="margin-top:5px">Add new rule</p></button>
+    <div>
+        <button id="presetbt" class="box"><a class="icon_preset"></a><p style="margin:5px 0px 0px 10px; text-align: left">  Preset</p></button>
+    </div>
     <div class="bwt box">
         <input id="bwtinput" type="number" min="0" value="65" step="0.1" /><span style="font-size:16px; float:right; margin:14px 2px 2px 0px">kg</span>
     </div>
 
-    <!-- 모달 팝업 -->
-    <div class="modal" id="modalPanel">
+    <!-- 모달 팝업 (메인메뉴) -->
+    <div class="modal" id="menuPanel">
+        <a class="icon_x" id="menuiconX" style="margin:10px 5px 5px 10px; float:left"></a>
+        <br /> <br />
+        <h2 style="width:100vw; margin:25px 0px 10px 0px; text-align:center; color:white"> CIV drug Calculator </h2>
+
+        <p style="position:fixed; right:30px;bottom:90px; color:white"> Please input body weight </p>
+        <div style="position:fixed; right:20px; bottom:35px; border:2px solid white; width: 120px; height:50px"> </div>
+    </div>
+
+    <!-- 프리셋 모달 팝업 -->
+    <div class="modal" id="presetPanel">
         <a class="icon_x" id="iconX" style="margin:10px 5px 5px 10px; float:left"></a>
         <br /> <br />
         <h2 style="width:100vw; margin:25px 0px 10px 0px; text-align:center; color:white">Preset List </h2>
@@ -52,8 +57,15 @@
         <!-- 포지션 -->
         <ul id="presetPosition"></ul>
 
-        <p style="position:fixed; right:30px;bottom:90px; color:white"> Please input body weight </p>
-        <div style="position:fixed; right:20px; bottom:35px; border:2px solid white; width: 120px; height:50px"> </div>
+        <div style="position: fixed; left:50%; transform:translate(-50%,0); bottom: 20px">
+            <!-- style="margin-top:10px; display:flex; " -->
+            <button id="prevBt" style="width:60px;height:30px"> &lt; prev </button> <input class="disableInput center" id="presetpage" value="" disabled="disabled" style="font-size:20px; width:50px;color:white;margin-top:10px" />  <button id="nextBt" style="width: 60px; height: 30px"> next &gt; </button>
+        </div>
+
+        <!--
+    <p style="position:fixed; right:30px;bottom:90px; color:white"> Please input body weight </p>
+    <div style="position:fixed; right:20px; bottom:35px; border:2px solid white; width: 120px; height:50px"> </div>
+        -->
     </div>
 
 
@@ -72,7 +84,7 @@
         </h3>
     </footer>
 
-
+    <!-- 약물 리스트 템플렛 -->
     <template id="drugitemid">
         <li class="drugitem">
             <div style="display: inline-block; width: 93%">
@@ -133,32 +145,36 @@
         </li>
     </template>
 
+
+    <!-- 프리셋 템플렛-->
     <template id="presetItemID">
         <li class="presetItem">
             <div style="display: inline-block; width: 100%">
 
                 <table style="width:100%">
-                       
-                        <tr>
-                        
-                            <td width="120px">
-                                <input class="disableInput" id="presetName" value="" disabled="disabled" />
+
+                    <tr>
+
+                        <td width="140px">
+                            <input class="disableInput" id="presetName" value="" disabled="disabled" style="font-size:18px" />
 
 
-                            </td>
-                            <td>
-                                <input class="disableInput right" id="presetDose" value="" disabled="disabled" />
+                        </td>
+                        <td>
+                            <input class="disableInput right" id="presetDose" value="" disabled="disabled" />
 
-                            </td>
-                            <td width="150px">
-                                <input class="disableInput right" id="drugSpeed" value="" disabled="disabled" />
-                            </td>
-                        </tr>
-                  
+                        </td>
+                        <td width="140px">
+                            <input class="disableInput right" id="drugSpeed" value="" disabled="disabled" />
+                        </td>
+
+                    </tr>
+
                 </table>
-        
+                <button class="presetItemAddBt" style="width: 80px ; height:20px; margin:0px 10px 0px 0px; float:right; vertical-align:top">+ add item</button>
 
             </div>
+            
         </li>
 
     </template>

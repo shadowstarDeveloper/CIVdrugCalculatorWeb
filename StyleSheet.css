@@ -64,6 +64,16 @@ a::after {
     margin-top:0px;
     float: left;
 }
+.icon_preset::after {
+    background-image: url(icons.png);
+    background-size: 128px;
+    background-position: -64px -32px;
+    width: 32px;
+    height: 32px;
+    margin-left: 4px;
+    margin-top: 0px;
+    float: left;
+}
 .civ::after{
     background-position: 0px 0px;
     background-size: 36px;
@@ -99,10 +109,19 @@ a::after {
 /* drug list box */
 #addbt {
     position: fixed;
-    width: 160px;
+    width: 40px;
     height: 40px;
     margin: 0px;
     left: 20px;
+    bottom: 40px;
+    font-size: 20px;
+}
+#presetbt {
+    position: fixed;
+    width: 120px;
+    height: 40px;
+    margin: 0px;
+    left: 70px;
     bottom: 40px;
     font-size: 20px;
 }
@@ -187,7 +206,7 @@ a::after {
 
 /*modal box*/
 .modal {
-    /* display: none; inline 평소에는 보이지 않음 */
+    display: none; /*inline 평소에는 보이지 않음 */
     position: absolute;
     top: 0;
     left: 0;
@@ -210,8 +229,12 @@ a::after {
     border: none;
     padding: 0px 4px 0px 4px;
     width:100%;
+    font-size : 14px;
 }
 .right {
     text-align: right;
   
+}
+.center{
+    text-align: center;
 }

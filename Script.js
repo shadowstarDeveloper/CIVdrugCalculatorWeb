@@ -16,57 +16,78 @@ const drugItemID = document.getElementById("drugitemid");
 const addBt = document.getElementById("addbt");
 const position = document.getElementById("position");
 
-const civIcon = document.getElementById("civIcon");
+const presetBt = document.getElementById("presetbt");
 const iconX = document.getElementById("iconX");
-const menuPanel = document.getElementById("modalPanel");
+const presetPanel = document.getElementById("presetPanel");
 const presetItemID = document.getElementById("presetItemID");
 const presetPosition = document.getElementById("presetPosition");
 
+const presetPage = document.getElementById("presetpage");
+const prevBt = document.getElementById("prevBt");
+const nextBt = document.getElementById("nextBt");
+iconX.addEventListener("mousedown", function (e) {
+    //프리셋 모달 끄기
+    presetPanel.style.display = "none";
+})
+presetBt.addEventListener("mousedown", function (e) {
+    //프리셋 모달 켜기
+    presetPanel.style.display = "inline";
+})
+
+
 addBt.addEventListener('click', function (e) {
     //추가 버튼
-    const item = drugItemID.content.cloneNode(true);
-
-    item.querySelector(".drugnametxt").addEventListener("touchstart", function (e) {
-        e.currentTarget.value = "";
-    })
-    item.querySelector(".drugnametxt").addEventListener("mousedown", function (e) {
-        e.currentTarget.value = "";
-    })
-    item.querySelector(".drugnametxt").addEventListener("change", drugsearch);
-    item.querySelector(".xbt").addEventListener("mousedown", function (e) {
-        /*부모에서 색인해서 해당 객체 삭제*/
-        for (i = 0; i < position.childNodes.length; i++) {
-           /* console.log(e.currentTarget.parentNode.parentNode);*/
-            if (position.childNodes[i] == e.currentTarget.parentNode.parentNode) {
-                position.removeChild(position.childNodes[i]);
-                break;
-            }
-        }
-        /*
-        console.log(position.childNodes.length);
-        console.log(position);
-        */
-    })
-
-    position.appendChild(item);
-    update();
+   addItem(null);
 })
 window.addEventListener('input', function (e) {
     update();
 });
 
+//아이템 추가
+function addItem( object ){
+     const item = drugItemID.content.cloneNode(true);
+     const drugnameTxt = item.querySelector(".drugnametxt");
+     const drugdoseTxt = item.querySelector(".drugdose");
+     const fluidccTxt = item.querySelector(".fluidcc");
+     
+     const drugspeedTxt = item.querySelector(".drugspeed");
+     const drugspeedTxtbox = item.querySelector(".drugspeedtxt");
+
+
+     if(object !=null){
+         drugnameTxt.value = object.drugName;
+         drugdoseTxt.value = object.drugDose;
+         if(object.drugGram =="mcg"){ drugdoseTxt.value = object.drugDose*0.001}
+         fluidccTxt.value = object.fluidTotalcc;
+         drugspeedTxt.value = object.drugSpeed;
+         drugspeedTxtbox.value = object.drugSpeedtxt;
+     }
+
+    drugnameTxt.addEventListener("touchstart", function (e) {
+        e.currentTarget.value = "";
+    })
+    drugnameTxt.addEventListener("mousedown", function (e) {
+        e.currentTarget.value = "";
+    })
+    drugnameTxt.addEventListener("change", drugsearch);
+    item.querySelector(".xbt").addEventListener("mousedown", function (e) {
+        /*부모에서 색인해서 해당 객체 삭제*/
+        for (i = 0; i < position.childNodes.length; i++) {
+            if (position.childNodes[i] == e.currentTarget.parentNode.parentNode) {
+                position.removeChild(position.childNodes[i]);
+                break;
+            }
+        }
+    })
+
+    position.appendChild(item);
+    update();
+}
 /**
  * @param {InputEvent} e 
  */
 
-iconX.addEventListener("mousedown", function (e) {
-    //모달 끄기
-    menuPanel.style.display = "none";
-})
-civIcon.addEventListener("mousedown", function (e) {
-    //모달 켜기
-    menuPanel.style.display = "inline";
-})
+
 
 function drugsearch(e) {
     let parent = e.currentTarget.parentNode.parentNode.parentNode.parentNode;
@@ -228,20 +249,56 @@ function fsearchPresetList(_tag) {
     }
     return null;
 }
-let n = 1;
+let n = 0;
+let m = 0;
+prevBt.addEventListener("mousedown", function (e) {
+    if (n > 0) {
+        n -= 1;
+        fpresetSet();
+    }
+})
+nextBt.addEventListener("mousedown", function (e) {
+    if (n < m) {
+        n += 1;
+        fpresetSet();
+    }
+})
 fpresetSet();
 
 function fpresetSet() {
- 
-    for (let i = 0; i < presetList.length; i++) {
-        if (i < n * 10) {
+    //height 46.4 + 10px // 
+    fpresetclear();
+    let count = Math.floor((window.innerHeight - 46 - 28 - 25-30) / 60);//- 120
+    m = Math.floor(presetList.length / count) ;
+  //  console.log(count);
+    presetPage.value = `${n+1}/${m+1} `
+    for (let i = n*count; i < presetList.length; i++) {
+
+        
+        if (i < (n+1) * count) {
             let data = presetList[i];
             const item = presetItemID.content.cloneNode(true);
+            item.querySelector(".presetItemAddBt").addEventListener("mousedown", function (e) {
+           
+               //console.log(data);
+                addItem(data);
+                presetPanel.style.display = "none";
+            })
+
             item.querySelector("#presetName").value = `${data.drugName} `  ;
             item.querySelector("#presetDose").value = `${data.drugDose}mg/${data.fluidTotalcc}cc`;
             item.querySelector("#drugSpeed").value = `${data.drugSpeed}~${data.maxSpeed} ${data.drugSpeedtxt}`;
             presetPosition.appendChild(item);
         }
         
+    }
+}
+function fpresetclear(){
+    for (i = 0; i < presetPosition.childNodes.length; i++) {
+        presetPosition.removeChild(presetPosition.childNodes[i]);
+        i--;
+        if (presetPosition.childNodes.length <= 0) {
+            break;
+        }  
     }
 }

@@ -64,13 +64,13 @@ function addItem( object ){
          drugspeedTxtbox.value = object.drugSpeedtxt;
      }
 
-    drugnameTxt.addEventListener("touchstart", function (e) {
+    /*drugnameTxt.addEventListener("touchstart", function (e) {
         e.currentTarget.value = "";
     })
     drugnameTxt.addEventListener("mousedown", function (e) {
         e.currentTarget.value = "";
-    })
-    drugnameTxt.addEventListener("change", drugsearch);
+    })*/
+    // drugnameTxt.addEventListener("change", drugsearch);
     item.querySelector(".xbt").addEventListener("mousedown", function (e) {
         /*부모에서 색인해서 해당 객체 삭제*/
         for (i = 0; i < position.childNodes.length; i++) {
@@ -90,7 +90,7 @@ function addItem( object ){
 
 
 
-function drugsearch(e) {
+/*function drugsearch(e) {
     let parent = e.currentTarget.parentNode.parentNode.parentNode.parentNode;
     _drugnametxt = e.currentTarget.value;
 
@@ -102,7 +102,7 @@ function drugsearch(e) {
     
 
     switch (_drugnametxt) {
-        /*
+        *//*
                             <option value="Norepinephrine"></option>
                             <option value="Dobutamine"></option>
                             <option value="Dopamix(premix)"></option>
@@ -110,7 +110,7 @@ function drugsearch(e) {
                             <option value="Propofol"></option>
                             <option value="Midazolam"></option>
                             <option value="Precedex"></option>
-        */
+        *//*
         //innotropics
         case "Norepinephrine":
             _drugdose.value = 4;
@@ -165,7 +165,7 @@ function drugsearch(e) {
     }
     update();
     //
-}
+}*/
 
 const update = function (value) {
     //console.log(BWTinput.value);

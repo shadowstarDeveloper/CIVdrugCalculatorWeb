@@ -32,6 +32,7 @@ iconX.addEventListener("mousedown", function (e) {
 presetBt.addEventListener("mousedown", function (e) {
     //프리셋 모달 켜기
     presetPanel.style.display = "inline";
+    fpresetSet();
 })
 
 
@@ -263,7 +264,7 @@ nextBt.addEventListener("mousedown", function (e) {
         fpresetSet();
     }
 })
-fpresetSet();
+
 
 function fpresetSet() {
     //height 46.4 + 10px // 

@@ -16,25 +16,41 @@ const drugItemID = document.getElementById("drugitemid");
 const addBt = document.getElementById("addbt");
 const position = document.getElementById("position");
 
+//프리셋 데이터
 const presetBt = document.getElementById("presetbt");
 const iconX = document.getElementById("iconX");
 const presetPanel = document.getElementById("presetPanel");
 const presetItemID = document.getElementById("presetItemID");
 const presetPosition = document.getElementById("presetPosition");
-
 const presetPage = document.getElementById("presetpage");
 const prevBt = document.getElementById("prevBt");
 const nextBt = document.getElementById("nextBt");
-iconX.addEventListener("mousedown", function (e) {
-    //프리셋 모달 끄기
-    presetPanel.style.display = "none";
+
+
+//메인메뉴 데이터
+const mainMenuBt = document.getElementById("civIcon");
+const mainPage = document.getElementById("menuPanel");
+const menuX = document.getElementById("menuiconX");
+
+//메인메뉴 모달
+mainMenuBt.addEventListener("mousedown", function (e) {
+    //메뉴 토글
+    mainPage.style.display = "inline";
 })
+menuX.addEventListener("mousedown", fmodalClose);
+
+//프리셋 모달
+iconX.addEventListener("mousedown", fmodalClose);
 presetBt.addEventListener("mousedown", function (e) {
     //프리셋 모달 켜기
     presetPanel.style.display = "inline";
     fpresetSet();
 })
-
+//모달 끄기 공통
+function fmodalClose(e) {
+    //프리셋 모달 끄기
+    e.currentTarget.parentNode.style.display = "none";
+}
 
 addBt.addEventListener('click', function (e) {
     //추가 버튼

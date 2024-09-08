@@ -22,7 +22,7 @@
 
             <span style="font-size:20px; margin:10px">powered by HTML5/JS</span>
             <!-- 버전 -->
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right"> ver 0.42 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right"> ver 0.43 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
@@ -42,7 +42,7 @@
     <div class="modal" id="menuPanel">
         <a class="icon_x" id="menuiconX" style="margin:10px 5px 5px 10px; float:left"></a>
         <br /> <br />
-        <h2 style="width:100vw; margin:25px 0px 10px 0px; text-align:center; color:white"> CIV drug Calculator </h2>
+        <h2 style="max-width:500px; width:100vw; margin:25px 0px 10px 0px; text-align:center; color:white"> CIV drug Calculator </h2>
 
         <p style="position:fixed; right:30px;bottom:90px; color:white"> Please input body weight </p>
         <div style="position:fixed; right:20px; bottom:35px; border:2px solid white; width: 120px; height:50px"> </div>
@@ -52,7 +52,7 @@
     <div class="modal" id="presetPanel">
         <a class="icon_x" id="iconX" style="margin:10px 5px 5px 10px; float:left"></a>
         <br /> <br />
-        <h2 style="width:100vw; margin:25px 0px 10px 0px; text-align:center; color:white">Preset List </h2>
+        <h2 style="max-width: 500px; width: 100vw; margin: 25px 0px 10px 0px; text-align: center; color: white">Preset List </h2>
 
         <!-- 포지션 -->
         <ul id="presetPosition"></ul>
@@ -116,7 +116,12 @@
                             </td>
                             <td class="dosefluidcell">
                                 <input class="drugdose" type="number" min="0" value="4" />
-                                <span>mg/</span>
+                                <!--<span>mg/</span>-->
+                                <select class="dosebt" id="dosebt">
+                                    <option value=1000>mg</option>
+                                    <option value=1>mcg</option>
+                                    <option value=0>unit</option>
+                                </select>
                                 <input class="fluidcc" type="number" min="0" value="50" />
                                 <span>cc</span>
 

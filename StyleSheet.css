@@ -190,7 +190,10 @@ a::after {
     text-align: right;
     padding: 0px 4px 0px 4px;
 }
-
+.dosebt{
+    min-width: 50px;
+    height: 30px;
+}
 
 .drugresult {
     text-align: right;
@@ -214,6 +217,7 @@ a::after {
     height: 100vh;
     overflow: hidden;
     background: rgba(0,0,0,0.8);
+
 }
 
 
@@ -222,6 +226,7 @@ a::after {
     border: 1px solid #353535;
     padding: 0px;
     margin-top: 10px;
+    max-width: 500px;
 }
 
 .disableInput {

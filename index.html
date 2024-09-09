@@ -22,7 +22,7 @@
 
             <span style="font-size:20px; margin:10px">powered by HTML5/JS</span>
             <!-- 버전 -->
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right"> ver 0.43 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right"> ver 0.44 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
@@ -87,40 +87,31 @@
     <!-- 약물 리스트 템플렛 -->
     <template id="drugitemid">
         <li class="drugitem">
-            <div style="display: inline-block; width: 93%">
+            <div style="display: inline-block; width:96%">
 
-                <table>
+                <table >
                     <thead>
                         <tr>
                             <th></th>
                             <th></th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td accesskey="">
+                            <td class="drugnamecell">
                                 <input class="drugnametxt" placeholder="Drugname.." />
 
-                                <!-- list="drugnamelist
-                                    <datalist id="drugnamelist">
-                                       <option value="Norepinephrine"></option>
-                                       <option value="Dobutamine"></option>
-                                       <option value="Dopamix(premix)"></option>
-                                       <option value="Remifentanil"></option>
-                                       <option value="Propofol"></option>
-                                       <option value="Midazolam"></option>
-                                       <option value="Precedex"></option>
-                                    </datalist>
-                                -->
+                              
 
                             </td>
                             <td class="dosefluidcell">
                                 <input class="drugdose" type="number" min="0" value="4" />
                                 <!--<span>mg/</span>-->
                                 <select class="dosebt" id="dosebt">
-                                    <option value=1000>mg</option>
-                                    <option value=1>mcg</option>
-                                    <option value=0>unit</option>
+                                    <option value=1>mg</option>
+                                    <option value=1000>mcg</option>
+                                    <option value=-1>unit</option>
                                 </select>
                                 <input class="fluidcc" type="number" min="0" value="50" />
                                 <span>cc</span>
@@ -141,14 +132,19 @@
                                     <option value="mg/kg/hr">mg/kg/hr</option>
                                     <option value="mg/min">mg/min</option>
                                     <option value="mg/hr">mg/hr</option>
+                                    <option value="unit/kg/hr">mg/kg/hr</option>
+                                    <option value="unit/min">mg/min</option>
+                                    <option value="unit/hr">mg/hr</option>
                                 </select>
                             </td>
-                            <td style="text-align:right"><span class="drugresult"></span></td>
+                            <td style="max-width:100px; text-align:right;">
+                                <span class="drugresult"></span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-            </div><div style="display: inline-block; width: 7%; float: right; vertical-align: top; margin-top:5px">
-                <button class="xbt"><a class="icon_x"></a></button>
+            </div><div style="display: inline-block; width: 4%; float: right; vertical-align: top; margin-top:5px">
+                <button class="xbt"><a class="icon_delete"></a></button>
 
             </div>
         </li>
@@ -160,27 +156,32 @@
         <li class="presetItem">
             <div style="display: inline-block; width: 100%">
 
-                <table style="width:100%">
+                <table style="width:100%" class="presetItemAddBt">
 
                     <tr>
 
-                        <td width="140px">
+                        <td width="180px">
                             <input class="disableInput" id="presetName" value="" disabled="disabled" style="font-size:18px" />
 
 
                         </td>
-                        <td>
+                        <td width="100px">
                             <input class="disableInput right" id="presetDose" value="" disabled="disabled" />
 
                         </td>
-                        <td width="140px">
-                            <input class="disableInput right" id="drugSpeed" value="" disabled="disabled" />
+                        <td " rowspan="2">
+                            <button  style="width: 70px ; height:40px; margin:0px 0px 0px 0px; float:right; vertical-align:top">+ add item</button>
                         </td>
 
                     </tr>
+                    <tr>
+                        <td width="180px" colspan="2">
+                            <input class="disableInput" id="drugSpeed" value="" disabled="disabled" />
+                        </td>
+                      
+                    </tr>
 
                 </table>
-                <button class="presetItemAddBt" style="width: 80px ; height:20px; margin:0px 10px 0px 0px; float:right; vertical-align:top">+ add item</button>
 
             </div>
             

@@ -54,6 +54,15 @@ a::after {
     margin-left: 0px;
     float: right;
 }
+.icon_delete::after {
+    background-image: url(icons.png);
+    background-size: 128px;
+    background-position: -96px -32px;
+    width: 32px;
+    height: 32px;
+    margin: -20px 0px 0px -10px;
+    float: right;
+}
 .icon_plus::after {
     background-image: url(icons.png);
     background-size: 128px;
@@ -181,6 +190,7 @@ a::after {
 
 }
 .drugdose {
+
     border: none;
     text-align: right;
     padding: 0px 4px 0px 4px;
@@ -201,7 +211,7 @@ a::after {
     padding: 0px 4px 0px 4px;
 }
 .drugitem table{
-    padding: 8px;
+    padding: 4px;
     vertical-align:bottom;
     width: 100%;
 }

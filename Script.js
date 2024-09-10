@@ -81,10 +81,15 @@ function addItem( object ){
      const drugdoseTxt = item.querySelector(".drugdose");
     const fluidccTxt = item.querySelector(".fluidcc");
     const dosebt = item.querySelector(".dosebt");
-     
+    
      const drugspeedTxt = item.querySelector(".drugspeed");
      const drugspeedTxtbox = item.querySelector(".drugspeedtxt");
 
+    //스피드버튼
+    const upBt = item.querySelector(".speedBt.up");
+
+    const downBt = item.querySelector(".speedBt.down");
+    
 
      if(object !=null){
          drugnameTxt.value = object.drugName;
@@ -98,13 +103,52 @@ function addItem( object ){
              dosebt.value = 1000;
          }
          if (object.drugGram == "unit") {
-             dosebt.value = 1;
+             dosebt.value = -1;
          }
          fluidccTxt.value = object.fluidTotalcc;
          drugspeedTxt.value = object.drugSpeed;
          drugspeedTxtbox.value = object.drugSpeedtxt;
      }
-
+    upBt.addEventListener('mousedown', function (e) {
+        let vel = 0.01;
+        /*if (drugspeedTxt.value * 10 > 10) {
+            vel = 1;
+        }
+         if (drugspeedTxt.value*10  > 0.1) {
+            vel = 0.01;
+        }
+        if (drugspeedTxt.value * 10 > 1) {
+            vel = 0.1;
+        }*/
+       
+        
+        if (drugspeedTxt.value != null) {
+            drugspeedTxt.value = (Math.round((Number(drugspeedTxt.value) + vel) * 100) / 100).toFixed(2);
+            update();
+        }
+    })
+    downBt.addEventListener('mousedown', function (e) {
+        let vel = 0.01;
+       /* if (drugspeedTxt.value * 10 > 10) {
+            vel = 1;
+        }
+        if (drugspeedTxt.value * 10 > 1) {
+            vel = 0.1;
+        }
+        if (drugspeedTxt.value * 10 > 0.1) {
+            vel = 0.01;
+        }*/
+        
+        if (drugspeedTxt.value != null) {
+            
+            drugspeedTxt.value = (Math.round((Number(drugspeedTxt.value) - vel) * 100) / 100).toFixed(2)
+            
+            if (drugspeedTxt.value <= 0) {
+                drugspeedTxt.value = 0;
+            }
+            update();
+        }
+    })
     /*drugnameTxt.addEventListener("touchstart", function (e) {
         e.currentTarget.value = "";
     })
@@ -149,67 +193,72 @@ const update = function (value) {
 
         let _drugspeed = drugSpeed[i].value;
         let _drugspeedtxt = drugSpeedTxt[i].value;
-        switch (_drugspeedtxt) {
-             
-            case "mcg/kg/min":
-                _min = 60;
-                _dose = 1000;
-                break;
-            case "mcg/kg/hr":
-                _min = 1;
-                _dose = 1000;
-                break;
-            case "mcg/min":
-                _min = 60;
-                _dose = 1000;
-                _bwt = 1;
-                break;
-            //mg
-            case "mg/kg/min":
-                _min = 60;
-                _dose = 1;
-                break;
-            case "mg/kg/hr":
-                _min = 1;
-                _dose = 1;
-                break;
-            case "mg/min":
-                _min = 60;
-                _dose = 1;
-                _bwt = 1;
-                break;
-            case "mg/hr":
-                _min = 1;
-                _dose = 1;
-                _bwt = 1;
-                break;
-            //unit
-            case "unit/kg/hr":
-                _min = 60;
-                _dose = 1000;
-                break;
-            case "unit/min":
-                _min = 60;
-                _dose = 1000;
-                _bwt = 1;
-                break;
-            case "unit/hr":
-                _min = 60;
-                _dose = 1000;
-                _bwt = 1;
-                break;
-        }
-        //0.1mcg/kg/min = cc/hr
-        // 0.1mcg/kg/min*hr = cc
-        //0.0001  * drugdose / bwt / 60 //mcg는 *1000
-        //(data.drugSpeed * data.fluidTotalcc * Bwt * 60) / (data.drugDose * dose);
-        let _result = (_drugspeed * _fluidcc * _bwt * _min) / (_drugdose * _dose) * _doseBt;
-        if (_doseBt < 0) {
-            //unit일 경우
+        let _result = 0;
+
+        if (_doseBt > 0) {
+            //mcg, mg일 경우
+            _min = 0;
+            switch (_drugspeedtxt) {
+
+                case "mcg/kg/min":
+                    _min = 60;
+                    _dose = 1000;
+                    break;
+                case "mcg/kg/hr":
+                    _min = 1;
+                    _dose = 1000;
+                    break;
+                case "mcg/min":
+                    _min = 60;
+                    _dose = 1000;
+                    _bwt = 1;
+                    break;
+                //mg
+                case "mg/kg/min":
+                    _min = 60;
+                    _dose = 1;
+                    break;
+                case "mg/kg/hr":
+                    _min = 1;
+                    _dose = 1;
+                    break;
+                case "mg/min":
+                    _min = 60;
+                    _dose = 1;
+                    _bwt = 1;
+                    break;
+                case "mg/hr":
+                    _min = 1;
+                    _dose = 1;
+                    _bwt = 1;
+                    break;
+
+            }
+            _result = (_drugspeed * _fluidcc * _bwt * _min) / (_drugdose * _dose) * _doseBt;
+        } else if (_doseBt < 0) {
+            _min = 0;
+            switch (_drugspeedtxt) {
+                //unit
+                case "unit/kg/hr":
+                    _min = 60;
+                    _dose = 1000;
+                    break;
+                case "unit/min":
+                    _min = 60;
+                    _dose = 1000;
+                    _bwt = 1;
+                    break;
+                case "unit/hr":
+                    _min = 60;
+                    _dose = 1000;
+                    _bwt = 1;
+                    break;
+      
+            }
             _result = (_drugspeed * _fluidcc * _bwt * _min) / (_drugdose * _dose) * -_doseBt;
         }
-        
 
+        
         drugResult[i].innerText = ` = ${_result.toFixed(1)}cc/hr `;
     }
 }
@@ -241,7 +290,7 @@ nextBt.addEventListener("mousedown", function (e) {
 function fpresetSet() {
     //height 46.4 + 10px // 
     fpresetclear();
-    let count = Math.floor((window.innerHeight - 46 - 28 - 25-30) / 60);//- 120
+    let count = Math.floor((window.innerHeight - 46 - 28 - 25-30) / 68.4);//- 120
     m = Math.floor(presetList.length / count) ;
   //  console.log(count);
     presetPage.value = `${n+1}/${m+1} `

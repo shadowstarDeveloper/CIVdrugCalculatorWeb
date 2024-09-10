@@ -22,7 +22,7 @@
 
             <span style="font-size:20px; margin:10px">powered by HTML5/JS</span>
             <!-- 버전 -->
-            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right"> ver 0.44 </span>
+            <span style="font-size:16px;vertical-align:top; margin-left:10px; margin-right:10px; float:right"> ver 0.5 </span>
         </div>
         <hr style="margin-top:20px" />
     </header>
@@ -89,7 +89,7 @@
         <li class="drugitem">
             <div style="display: inline-block; width:96%">
 
-                <table >
+                <table>
                     <thead>
                         <tr>
                             <th></th>
@@ -102,7 +102,7 @@
                             <td class="drugnamecell">
                                 <input class="drugnametxt" placeholder="Drugname.." />
 
-                              
+
 
                             </td>
                             <td class="dosefluidcell">
@@ -122,8 +122,8 @@
                     </tbody>
                     <tbody>
                         <tr>
-                            <td style="display:flex; flex-direction:row;">
-                                <input class="drugspeed" type="number" min="0" value="0.02" />
+                            <td style="display:flex; flex-direction:row; margin-top:5px;">
+                                <input class="drugspeed" type="number" value="0.02" step="0.01"/>
                                 <select class="drugspeedtxt">
                                     <option value="mcg/kg/min">mcg/kg/min</option>
                                     <option value="mcg/kg/hr">mcg/kg/hr</option>
@@ -132,21 +132,33 @@
                                     <option value="mg/kg/hr">mg/kg/hr</option>
                                     <option value="mg/min">mg/min</option>
                                     <option value="mg/hr">mg/hr</option>
-                                    <option value="unit/kg/hr">mg/kg/hr</option>
-                                    <option value="unit/min">mg/min</option>
-                                    <option value="unit/hr">mg/hr</option>
+                                    <option value="unit/kg/hr">unit/kg/hr</option>
+                                    <option value="unit/min">unit/min</option>
+                                    <option value="unit/hr">unit/hr</option>
                                 </select>
+
+
                             </td>
-                            <td style="max-width:100px; text-align:right;">
+                            <td style="text-align:right;">
                                 <span class="drugresult"></span>
+                                <button class="speedBt up" id="upBt" style="margin-right:0px;"> ▲ </button>
+                                <button class="speedBt down" id="downBt" style="margin-right:-25px;"> ▼ </button>
+
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div><div style="display: inline-block; width: 4%; float: right; vertical-align: top; margin-top:5px">
+            </div>
+            <div style="display: inline-block; width: 4%; float: right; vertical-align: top; margin-top:5px">
                 <button class="xbt"><a class="icon_delete"></a></button>
 
             </div>
+            <!--
+    <div style="display: inline-block; width: 0%; float:right; vertical-align:bottom; margin-top:30px">
+
+
+    </div
+        -->
         </li>
     </template>
 
@@ -160,16 +172,16 @@
 
                     <tr>
 
-                        <td width="180px">
+                        <td >
                             <input class="disableInput" id="presetName" value="" disabled="disabled" style="font-size:18px" />
 
 
                         </td>
-                        <td width="100px">
+                        <td width="130px">
                             <input class="disableInput right" id="presetDose" value="" disabled="disabled" />
 
                         </td>
-                        <td " rowspan="2">
+                        <td width="80px" rowspan="2">
                             <button  style="width: 70px ; height:40px; margin:0px 0px 0px 0px; float:right; vertical-align:top">+ add item</button>
                         </td>
 

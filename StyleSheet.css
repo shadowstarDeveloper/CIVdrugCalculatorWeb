@@ -24,7 +24,8 @@ body{
 }
 
 input {
-    font-size: inherit;
+    font-size: 4vw;
+    height: 24px; /*4vh*/
 }
 /* 이미지 아이콘 */
 a::after {
@@ -60,7 +61,7 @@ a::after {
     background-position: -96px -32px;
     width: 32px;
     height: 32px;
-    margin: -20px 0px 0px -10px;
+    margin: -20px 0px 0px -5px;
     float: right;
 }
 .icon_plus::after {
@@ -151,24 +152,22 @@ a::after {
 }
 .drugnametxt {
     border: none;
-    height: 4vh;
     min-width: 0;
     width: 100%;
     padding:0px 4px 0px 4px;
 }
 .drugspeed {
+    
     border: none;
     user-select: none;
     min-width: 4vw;
     width: 30%;
     max-width: 80px;
-    height: 4vh;
     text-align: right;
     padding: 0px 4px 0px 4px;
 }
 .drugspeedtxt {
     border: none;
-    height: 4vh;
     width: 70%;
     text-align: left;
     margin-left: 10px;
@@ -179,18 +178,18 @@ a::after {
     align-items: center;
     justify-content: end;
     text-align: right;
-    font-size: 24px;
+    font-size: 20px;
     padding: 0px 4px 0px 4px;
 }
 .dosefluidcell input {
     flex: 1 1 auto;
-    min-width: 2ch;
-    max-width: 4ch;
+    min-width: 20px;
+    max-width: 60px;
     width: 100%;
 
 }
 .drugdose {
-
+    
     border: none;
     text-align: right;
     padding: 0px 4px 0px 4px;
@@ -202,16 +201,19 @@ a::after {
 }
 .dosebt{
     min-width: 50px;
-    height: 30px;
+    height: 24px;
 }
-
+.speedBt{
+    width:30px;
+    height:24px;
+}
 .drugresult {
     text-align: right;
-    font-size: 24px;
+    font-size: 20px;
     padding: 0px 4px 0px 4px;
 }
 .drugitem table{
-    padding: 4px;
+    padding: 2px;
     vertical-align:bottom;
     width: 100%;
 }
@@ -244,7 +246,7 @@ a::after {
     border: none;
     padding: 0px 4px 0px 4px;
     width:100%;
-    font-size : 14px;
+    font-size : 18px;
 }
 .right {
     text-align: right;

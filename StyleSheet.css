@@ -24,7 +24,7 @@ body{
 }
 
 input {
-    font-size: 4vw;
+    font-size: 16px; /*4vw;*/
     height: 24px; /*4vh*/
 }
 /* 이미지 아이콘 */

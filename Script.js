@@ -12,6 +12,7 @@ const doseBt = document.getElementsByClassName('dosebt');
 const drugSpeed = document.getElementsByClassName('drugspeed');
 const drugSpeedTxt = document.getElementsByClassName('drugspeedtxt');
 const drugResult = document.getElementsByClassName('drugresult');
+const valueTxxt = document.getElementsByClassName('valueTxt');
 
 const drugItemID = document.getElementById("drugitemid");
 const addBt = document.getElementById("addbt");
@@ -87,9 +88,9 @@ function addItem( object ){
 
     //스피드버튼
     const upBt = item.querySelector(".speedBt.up");
-
     const downBt = item.querySelector(".speedBt.down");
-    
+    //변환값 저장
+    const valueTxt = item.querySelector(".valueTxt");
 
      if(object !=null){
          drugnameTxt.value = object.drugName;
@@ -108,40 +109,47 @@ function addItem( object ){
          fluidccTxt.value = object.fluidTotalcc;
          drugspeedTxt.value = object.drugSpeed;
          drugspeedTxtbox.value = object.drugSpeedtxt;
-     }
-    upBt.addEventListener('mousedown', function (e) {
+         
+    }
+    let vel = 0.01;
+    if (drugspeedTxt.value >= 0.01) {
+        vel = 0.01;
+    }
+    if (drugspeedTxt.value >= 0.1) {
+        vel = 0.1;
+    }
+    if (drugspeedTxt.value >= 1) {
+        vel = 1;
+    }
+    valueTxt.value = vel;
+    drugspeedTxt.addEventListener('input', function () {
         let vel = 0.01;
-        /*if (drugspeedTxt.value * 10 > 10) {
-            vel = 1;
-        }
-         if (drugspeedTxt.value*10  > 0.1) {
+        if (drugspeedTxt.value >= 0.01) {
             vel = 0.01;
         }
-        if (drugspeedTxt.value * 10 > 1) {
+        if (drugspeedTxt.value >= 0.1) {
             vel = 0.1;
-        }*/
-       
-        
+        }
+        if (drugspeedTxt.value >= 1) {
+            vel = 1;
+        }
+        valueTxt.value = vel;
+        //console.log(vel);
+    })
+
+    upBt.addEventListener('mousedown', function (e) {
+ 
         if (drugspeedTxt.value != null) {
-            drugspeedTxt.value = (Math.round((Number(drugspeedTxt.value) + vel) * 100) / 100).toFixed(2);
+            let result = (Math.round((Number(drugspeedTxt.value) + Number(valueTxt.value)) * 100) / 100).toFixed(2);
+            drugspeedTxt.value = Number(result);
             update();
         }
     })
     downBt.addEventListener('mousedown', function (e) {
-        let vel = 0.01;
-       /* if (drugspeedTxt.value * 10 > 10) {
-            vel = 1;
-        }
-        if (drugspeedTxt.value * 10 > 1) {
-            vel = 0.1;
-        }
-        if (drugspeedTxt.value * 10 > 0.1) {
-            vel = 0.01;
-        }*/
-        
+
         if (drugspeedTxt.value != null) {
-            
-            drugspeedTxt.value = (Math.round((Number(drugspeedTxt.value) - vel) * 100) / 100).toFixed(2)
+            let result = (Math.round((Number(drugspeedTxt.value) - Number(valueTxt.value)) * 100) / 100).toFixed(2)
+            drugspeedTxt.value = Number(result);
             
             if (drugspeedTxt.value <= 0) {
                 drugspeedTxt.value = 0;
@@ -174,7 +182,7 @@ function addItem( object ){
  */
 
 
-const update = function (value) {
+const update = function () {
     //console.log(BWTinput.value);
     
     //
@@ -240,17 +248,17 @@ const update = function (value) {
             switch (_drugspeedtxt) {
                 //unit
                 case "unit/kg/hr":
-                    _min = 60;
-                    _dose = 1000;
+                    _min = 1;
+                    _dose = 1;
                     break;
                 case "unit/min":
                     _min = 60;
-                    _dose = 1000;
+                    _dose = 1;
                     _bwt = 1;
                     break;
                 case "unit/hr":
-                    _min = 60;
-                    _dose = 1000;
+                    _min = 1;
+                    _dose = 1;
                     _bwt = 1;
                     break;
       
@@ -260,8 +268,14 @@ const update = function (value) {
 
         
         drugResult[i].innerText = ` = ${_result.toFixed(1)}cc/hr `;
+       
+        
     }
 }
+function fcalculate(value = 0) {
+
+}
+
 function fsearchPresetList(_tag) {
     for (let i = 0; i < presetList.length; i++) {
         if (presetList[i].Tag == _tag) {

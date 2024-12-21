@@ -92,13 +92,25 @@ a::after {
 /* float box */
 .bwt {
     position: fixed;
-    max-width : 100%;
+    left: 400px;
+    max-width: 100%;
     bottom: 40px;
-    right: 30px;
     width: 100px;
-    height:40px;
-    
+    height: 40px;
 }
+@media(max-width:500px){
+    /*화면 넓이가 500px 이하일 때 */
+    .bwt {
+        position: fixed;
+        left: auto;
+        max-width: 100%;
+        bottom: 40px;
+        right: 30px;
+        width: 100px;
+        height: 40px;
+    }
+} 
+
 #bwtinput {
     width: 70px;
     height: 36px;

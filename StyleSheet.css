@@ -110,15 +110,19 @@ a::after {
         height: 40px;
     }
 } 
-.bwtinfo{
+.infobox{
 
 }
 @media(max-width:500px){
     /*화면 넓이가 500px 이하일 때 */
-    .bwtinfo {
+    .infobox {
         position: fixed;
         left: auto;
-
+        max-width: 100%;
+        bottom: 40px;
+        right: 30px;
+        width: 100px;
+        height: 40px;
     }
 } 
 #bwtinput {

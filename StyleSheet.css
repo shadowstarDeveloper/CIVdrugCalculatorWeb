@@ -247,7 +247,7 @@ a::after {
 
 /*modal box*/
 .modal {
-    display: none; /*inline 평소에는 보이지 않음 */
+    /* display: none; inline 평소에는 보이지 않음 */
     position: absolute;
     top: 0;
     left: 0;
@@ -258,9 +258,11 @@ a::after {
 
 }
 .modal menu{
-    display:inline;
+    /* display:none; */
 }
-
+.modal preset{
+    display:none;
+}
 .presetItem {
     background: rgb(230,230,230);
     border: 1px solid #353535;

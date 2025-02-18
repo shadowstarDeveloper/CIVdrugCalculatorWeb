@@ -111,7 +111,11 @@ a::after {
     }
 } 
 .infobox{
-
+     left: 390px;
+    max-width: 100%;
+    bottom: 40px;
+    width: 100px;
+    height: 40px;
 }
 @media(max-width:500px){
     /*화면 넓이가 500px 이하일 때 */

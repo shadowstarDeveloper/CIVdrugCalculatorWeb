@@ -109,13 +109,14 @@ a::after {
         width: 100px;
         height: 40px;
     }
-} 
-.infobox{
-     left: 390px;
+}
+.infobox {
+    position: fixed;
+    left: 300px;
     max-width: 100%;
-    bottom: 40px;
-    width: 100px;
-    height: 40px;
+    bottom: 30px;
+    width: 200px;
+    height: 75px;
 }
 @media(max-width:500px){
     /*화면 넓이가 500px 이하일 때 */
@@ -123,10 +124,10 @@ a::after {
         position: fixed;
         left: auto;
         max-width: 100%;
-        bottom: 40px;
-        right: 30px;
-        width: 100px;
-        height: 40px;
+        right: 40px;
+        bottom: 30px;
+        width: 200px;
+        height: 75px;
     }
 } 
 #bwtinput {
@@ -251,6 +252,8 @@ a::after {
 
 /*modal box*/
 .modal {
+
+    
     /* display: none; inline 평소에는 보이지 않음 */
     position: absolute;
     top: 0;
@@ -259,9 +262,8 @@ a::after {
     height: 100vh;
     overflow: hidden;
     background: rgba(0,0,0,0.8);
-
 }
-.modal.menu{
+.modal.menu {
     /* display:none; */
 }
 .modal.preset{

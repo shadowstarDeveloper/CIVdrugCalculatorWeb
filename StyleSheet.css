@@ -257,10 +257,10 @@ a::after {
     background: rgba(0,0,0,0.8);
 
 }
-.modalmenu{
+.modal.menu{
     /* display:none; */
 }
-.modal preset{
+.modal.preset{
     display:none;
 }
 .presetItem {

@@ -118,11 +118,7 @@ a::after {
     .bwtinfo {
         position: fixed;
         left: auto;
-        max-width: 100%;
-        bottom: 40px;
-        right: 30px;
-        width: 100px;
-        height: 40px;
+
     }
 } 
 #bwtinput {
